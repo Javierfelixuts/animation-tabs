@@ -1,0 +1,74 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+html {
+    box-sizing: border-box;
+  }
+  *, *:before, *:after {
+    box-sizing: inherit;
+  }
+main{
+    width: 100%;
+    height: 100dvh;
+    display: grid;
+    place-items: center;
+    background: #3d515b;
+}
+nav {
+    width: 400px;
+    padding: 10px 2px;
+    background: #009688;
+    border-radius: 8px;
+    display: flex;
+    position: relative;
+}
+nav > div {
+    width: 100px;
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 11;
+}
+.indicator{
+    display: none;
+    position: absolute;
+    top: -40px;
+    left: 20px;
+    width: 60px;
+    height: 60px;
+    background-color: #009688;
+    border: 6px solid #3d515b;
+    border-radius: 50%;
+    z-index: 10;
+    transition: .5s ease-in-out;
+}
+div > svg {
+    transition:  .4s cubic-bezier(0.48, 1.07, 1, 1.27);
+}
+
+div:hover svg{
+    transform: translateY(-40px);
+}
+
+svg {
+    stroke: #fff;
+    width: 40px;
+}
+
+div:hover ~ .indicator {
+    display: block;
+}
+div:hover:nth-child(1) ~ .indicator{
+    transform: translateX(calc(100px * 0));
+}
+div:hover:nth-child(2) ~ .indicator{
+    transform: translateX(calc(100px * 1));
+}
+div:hover:nth-child(3) ~ .indicator{
+    transform: translateX(calc(100px * 2));
+}
+div:hover:nth-child(4) ~ .indicator{
+    transform: translateX(calc(100px * 3));
+}
+

@@ -3,6 +3,9 @@
     padding: 0;
     box-sizing: border-box;
 }
+:root {
+    --width: 100px;
+}
 
 main{
     width: 100%;
@@ -12,7 +15,7 @@ main{
     background: #3d515b;
 }
 nav {
-    width: 400px;
+    flex: 1;
     padding: 10px 2px;
     background: #009688;
     border-radius: 8px;
@@ -20,12 +23,23 @@ nav {
     position: relative;
 }
 nav > div {
-    width: 100px;
+    width: var(--width);
     display: flex;
     justify-content: center;
     cursor: pointer;
     z-index: 11;
 }
+
+div > svg {
+    stroke: #fff;
+    width: 40px;
+    transition:  .4s cubic-bezier(0.48, 1.07, 1, 1.27);
+}
+
+div:hover svg{
+    transform: translateY(-40px);
+}
+
 .indicator{
     display: none;
     position: absolute;
@@ -39,32 +53,24 @@ nav > div {
     z-index: 10;
     transition: .5s ease-in-out;
 }
-div > svg {
-    transition:  .4s cubic-bezier(0.48, 1.07, 1, 1.27);
-}
-
-div:hover svg{
-    transform: translateY(-40px);
-}
-
-svg {
-    stroke: #fff;
-    width: 40px;
-}
 
 div:hover ~ .indicator {
     display: block;
 }
-div:hover:nth-child(1) ~ .indicator{
-    transform: translateX(calc(100px * 0));
-}
+
+
 div:hover:nth-child(2) ~ .indicator{
-    transform: translateX(calc(100px * 1));
+    transform: translateX(calc(var(--width) * 1));
 }
 div:hover:nth-child(3) ~ .indicator{
-    transform: translateX(calc(100px * 2));
+    transform: translateX(calc(var(--width) * 2));
 }
 div:hover:nth-child(4) ~ .indicator{
-    transform: translateX(calc(100px * 3));
+    transform: translateX(calc(var(--width) * 3));
 }
+div:hover:nth-child(5) ~ .indicator{
+    transform: translateX(calc(var(--width) * 4));
+}
+
+
 
